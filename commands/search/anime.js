@@ -84,8 +84,6 @@ module.exports = class AnimeCommand extends Command {
 			const id = await this.search(query);
 			if (!id) return msg.say('Could not find any results.');
 			const anime = await this.fetchAnime(id);
-			if (!this.personalList) await this.fetchPersonalList();
-			const entry = this.personalList.find(ani => ani.mediaId === id);
 			const malScore = await this.fetchMALScore(anime.idMal);
 			const malURL = `https://myanimelist.net/anime/${anime.idMal}`;
 			const embed = new MessageEmbed()

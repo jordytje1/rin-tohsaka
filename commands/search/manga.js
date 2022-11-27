@@ -78,8 +78,6 @@ module.exports = class MangaCommand extends Command {
 			const id = await this.search(query);
 			if (!id) return msg.say('Could not find any results.');
 			const manga = await this.fetchManga(id);
-			if (!this.personalList) await this.fetchPersonalList();
-			const entry = this.personalList.find(ma => ma.mediaId === id);
 			const malScore = await this.fetchMALScore(manga.idMal);
 			const malURL = `https://myanimelist.net/manga/${manga.idMal}`;
 			const embed = new MessageEmbed()

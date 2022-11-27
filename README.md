@@ -93,7 +93,6 @@ when clicking any of these links, you'll need an account for that
 API. All are free unless otherwise stated.
 
 * `ALPHA_VANTAGE_KEY` can be obtained at the [Alpha Vantage website](https://www.alphavantage.co/support/#api-key).
-* `ANILIST_USERNAME` is the username of an [Anilist](https://anilist.co/) user. Not required.
 * `BITLY_KEY` can be obtained by getting a [Generic Access Token](https://bitly.is/accesstoken).
 * `GITHUB_ACCESS_TOKEN` can be obtained by [creating an access token](https://github.com/settings/tokens).
 * `GOOGLE_KEY` can be obtained at the [Google Developer Console](https://console.developers.google.com/). Be sure to click "Enable APIs and Services" and enable the following APIs:

@@ -4,7 +4,6 @@ const request = require('node-superfetch');
 const cheerio = require('cheerio');
 const { stripIndents } = require('common-tags');
 const { cleanAnilistHTML, embedURL } = require('../../util/Util');
-const ANILIST_USERNAME = process.env.ANILIST_USERNAME;
 const searchGraphQL = stripIndents`
 	query ($search: String, $type: MediaType, $isAdult: Boolean) {
 		anime: Page (perPage: 10) {
@@ -48,20 +47,6 @@ const resultGraphQL = stripIndents`
 		}
 	}
 `;
-const personalGraphQL = stripIndents`
-	query ($name: String, $type: MediaType) {
-		MediaListCollection(userName: $name, type: $type) {
-			lists {
-				entries {
-					mediaId
-					score(format: POINT_10)
-					status
-				}
-				name
-			}
-		}
-	}
-`;
 const seasons = {
 	WINTER: 'Winter',
 	SPRING: 'Spring',
@@ -92,8 +77,6 @@ module.exports = class AnimeCommand extends Command {
 				}
 			]
 		});
-
-		this.personalList = null;
 	}
 
 	async run(msg, { query }) {
@@ -117,7 +100,6 @@ module.exports = class AnimeCommand extends Command {
 				.addField('❯ Season', anime.season ? `${seasons[anime.season]} ${anime.startDate.year}` : '???', true)
 				.addField('❯ Average Score', anime.averageScore ? `${anime.averageScore}%` : '???', true)
 				.addField(`❯ MAL Score`, malScore ? embedURL(malScore, malURL) : '???', true)
-				.addField(`❯ ${ANILIST_USERNAME}'s Score`, entry && entry.score ? `${entry.score}/10` : '???', true)
 				.addField('❯ External Links', anime.externalLinks.length
 					? anime.externalLinks.map(link => `[${link.site}](${link.url})`).join(', ')
 					: 'None');
@@ -162,23 +144,5 @@ module.exports = class AnimeCommand extends Command {
 		} catch {
 			return null;
 		}
-	}
-
-	async fetchPersonalList() {
-		if (this.personalList) return this.personalList;
-		const { body } = await request
-			.post('https://graphql.anilist.co/')
-			.send({
-				variables: {
-					name: ANILIST_USERNAME,
-					type: 'ANIME'
-				},
-				query: personalGraphQL
-			});
-		const { lists } = body.data.MediaListCollection;
-		this.personalList = [];
-		for (const list of Object.values(lists)) this.personalList.push(...list.entries);
-		setTimeout(() => { this.personalList = null; }, 3.6e+6);
-		return this.personalList;
 	}
 };

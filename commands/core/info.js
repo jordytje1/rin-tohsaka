@@ -27,7 +27,7 @@ module.exports = class InfoCommand extends Command {
 		const repoURL = `https://github.com/${RIN_GITHUB_REPO_USERNAME}/${RIN_GITHUB_REPO_NAME}`;
 		const embed = new MessageEmbed()
 			.setColor(0x00AE86)
-			.setFooter('©2018-2022 fruitykitkats#7728')
+			.setFooter('©2018-2022 fruitykitkats#0001')
 			.addField('❯ Servers', formatNumber(this.client.guilds.cache.size), true)
 			.addField('❯ Commands', formatNumber(this.client.registry.commands.size), true)
 			.addField('❯ Shards', formatNumber(this.client.options.shardCount), true)

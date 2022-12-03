@@ -1,6 +1,6 @@
 {
 	"name": "rin-tohsaka",
-	"version": "0.1.4",
+	"version": "0.2.0",
 	"description": "Your personal server companion.",
 	"main": "Rin.js",
 	"scripts": {

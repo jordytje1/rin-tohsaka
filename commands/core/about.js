@@ -9,14 +9,14 @@ const permissions = require('../../assets/json/permissions');
 const { RIN_GITHUB_REPO_USERNAME, RIN_GITHUB_REPO_NAME } = process.env;
 const source = RIN_GITHUB_REPO_NAME && RIN_GITHUB_REPO_USERNAME;
 
-module.exports = class InfoCommand extends Command {
+module.exports = class AboutCommand extends Command {
 	constructor(client) {
 		super(client, {
-			name: 'info',
+			name: 'about',
 			aliases: ['stats', 'uptime', 'bot-info'],
 			group: 'core',
-			memberName: 'info',
-			description: 'Responds with detailed bot information.',
+			memberName: 'about',
+			description: 'Responds with detailed information about Rin.',
 			guarded: true,
 			clientPermissions: ['EMBED_LINKS']
 		});

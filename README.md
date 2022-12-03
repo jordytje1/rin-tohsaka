@@ -142,11 +142,11 @@ Total: 356
 
 ### Core:
 
+* **about:** Responds with detailed information about Rin.
 * **changelog:** Responds with the bot's latest 10 commits.
 * **cloc:** Responds with the bot's code line count.
 * **donate:** Responds with the bot's donation links.
 * **help:** Displays a list of available commands, or detailed information for a specific command.
-* **info:** Responds with detailed bot information.
 * **invite:** Responds with the bot's invite links.
 * **options:** Responds with a list of server options.
 * **ping:** Checks the bot's ping to the Discord server.

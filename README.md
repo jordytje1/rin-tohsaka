@@ -10,23 +10,6 @@ Rin is a Discord bot coded in JavaScript with
 300 commands, she is one of the most feature-rich bots out there. Formerly
 "Shiro".
 
-## Table of Contents
-
-- [Copyright](#copyright)
-- [Permissions](#permissions)
-- [Fun Information](#fun-information)
-- [Filling Out Your .env File](#filling-out-your-env-file)
-	* [Discord-related Info](#discord-related-info)
-	* [Emoji IDs](#emoji-ids)
-	* [API Keys, IDs, and Secrets](#api-keys-ids-and-secrets)
-	* [Imgur Album IDs](#imgur-album-ids)
-- [Options](#Options)
-	* [General Options](#general-options)
-	* [Phone Options](#phone-options)
-	* [Portal Options](#portal-options)
-- [Other Features](#other-features)
-- [Licensing](#licensing)
-
 ## Copyright
 
 - ©2018-2022 fruitykitkats#0001

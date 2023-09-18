@@ -5,7 +5,7 @@ const { Intents, MessageEmbed } = require('discord.js');
 const Client = require('./structures/Client');
 const client = new Client({
 	commandPrefix: RIN_PREFIX,
-	owner: OWNERS.split(','),
+	owner: OWNERS.split('989503830658015352'),
 	invite: INVITE,
 	disableMentions: 'everyone',
 	partials: ['GUILD_MEMBER'],
